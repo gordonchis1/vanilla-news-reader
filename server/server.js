@@ -40,8 +40,6 @@ app.get("/api/top-news", async (req, res) => {
   }
 
   if (cacheNews[country][language][date]) {
-    console.log("return cache");
-
     return res.json({
       country: cacheNews[country][language][date].country,
       language: cacheNews[country][language][date].lenguage,
@@ -54,10 +52,7 @@ app.get("/api/top-news", async (req, res) => {
       `${WORD_NEWS_API_PATH}/top-news?api-key=${WORD_NEWS_API_KEY}&${parseQuerys}`
     );
 
-    console.log(response.url);
-
     const data = await response.json();
-    console.log(data);
 
     let newsToReturn = data.top_news;
 
@@ -99,7 +94,6 @@ app.get("/api/news", async (req, res) => {
   }
 
   if (cacheNews[country][language][date]) {
-    console.log("return cache");
     if (realPage * 10 >= cacheNews[country][language][date].top_news.length) {
       nextPage = null;
     }
@@ -131,8 +125,6 @@ app.get("/api/news", async (req, res) => {
 
     let newsToReturn = data.top_news;
 
-    console.log(data);
-
     if (realPage * 10 >= newsToReturn.length) {
       nextPage = null;
     }
@@ -141,7 +133,6 @@ app.get("/api/news", async (req, res) => {
       realPage = 1;
     }
     const startIndex = realPage * 10 - 10;
-    console.log(realPage, startIndex, newsToReturn.length);
 
     if (startIndex >= newsToReturn.length) {
       return res.status(404).json({ content: "No more news to see" });
@@ -171,6 +162,6 @@ app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "..", "App", "src"));
 });
 
-app.listen(3300, "192.168.100.22", (url) => {
+app.listen(3300, (url) => {
   console.log("Desplegado");
 });
