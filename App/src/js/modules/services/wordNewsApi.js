@@ -1,6 +1,5 @@
 // TODO: change the location of apikey
-// const NEWS_API_PATH = `http://localhost:3300/api`
-const NEWS_API_PATH = `http://192.168.100.22:3300/api`
+const NEWS_API_PATH = `http://localhost:3300/api`
 
 // TODO: implementar diferentes lenguajes
 

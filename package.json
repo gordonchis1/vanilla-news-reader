@@ -1,0 +1,32 @@
+{
+   "name": "newspage-vanillajs",
+   "version": "1.0.0",
+   "description": "Una aplicación en vanilla JavaScript que extrae noticias de diversas fuentes usando la API de worldnewsapi y las muestra en un solo lugar para una lectura fácil y cómoda.",
+   "main": "index.js",
+   "workspaces": [
+      "App",
+      "Server"
+   ],
+   "scripts": {
+      "dev": "npm run dev --workspace=Server",
+      "lint": "prettier --write App Server && eslint App Server"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/gordonchis1/vanilla-news-reader.git"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/gordonchis1/vanilla-news-reader/issues"
+   },
+   "devDependencies": {
+      "@eslint/js": "^9.21.0",
+      "eslint": "^9.21.0",
+      "globals": "^16.0.0",
+      "prettier": "^3.5.2",
+      "standard": "^17.1.2"
+   },
+   "homepage": "https://github.com/gordonchis1/vanilla-news-reader#readme"
+}

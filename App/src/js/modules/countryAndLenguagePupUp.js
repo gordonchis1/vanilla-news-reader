@@ -234,12 +234,12 @@ function renderCountrySection(container) {
       selectorContainer.appendChild(selectorLanguage)
 
       nextButton.textContent = textContent.language[language].button
-      nextButton.addEventListener("click", () => {
+      nextButton.addEventListener("click", async () => {
          document.querySelector("body").style.overflow = "scroll"
          preferences["language"] = selectorLanguage.value
          window.localStorage.setItem("preferences", JSON.stringify(preferences))
          renderCountrySection(container)
-         launchSlider()
+         await launchSlider()
          relaunchNewsInScroll()
       })
    }
