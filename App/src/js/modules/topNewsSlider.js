@@ -1,8 +1,6 @@
 import { convertDateFormat, getTopNews } from "./services/wordNewsApi.js"
-import {
-   getUserLanguage,
-   initCountryAndLengagePopUp,
-} from "../modules/countryAndLenguagePupUp.js"
+import { initCountryAndLengagePopUp } from "../modules/countryAndLenguagePupUp.js"
+import { getUserLanguage } from "../getUserLanguage.js"
 
 let news = undefined
 let currentUserSliderPosition = 0
@@ -13,6 +11,7 @@ let sourceIndex = 0
 let observer = null
 let preferences = undefined
 let restartDots = false
+let interval = null
 
 const textContent = {
    es: {
@@ -119,12 +118,13 @@ export function renderNewsInSlider(newsArray) {
       currentSliderRenderNews = 0
    }
 
-   if (newsArray.length !== 0) {
-      const { title, summary, image, author, url } =
+   if (newsArray.length !== 0 && container) {
+      const { title, summary, image, author, id } =
          newsArray[currentSliderRenderNews].news[sourceIndex]
 
-      const card = document.createElement("div")
+      const card = document.createElement("a")
       card.classList.add("main-content_card")
+      card.href = `/news/${id}`
       card.setAttribute("id", currentSliderRenderNews)
 
       card.innerHTML = `
@@ -144,7 +144,6 @@ export function renderNewsInSlider(newsArray) {
                       <p class="card_author">Author: ${author}</p>
                    </div>
                                         <a
-                         href="${url}"
                          aria-label="Read more"
                          class="card_read-more"
                          >Leer mas ></a
@@ -225,7 +224,7 @@ export function onUserSliderScroll() {
 // TODO: quitar la posicion del usurio de aqui y dejar todo para el observer
 export function autoSliderNews() {
    // ? avanzamos el scroll automaticamente y tambien la posicion de este
-   setInterval(() => {
+   interval = setInterval(() => {
       if (!userHasScrolled) {
          autoScrolling = true
          renderNewsInSlider(news)
@@ -243,6 +242,10 @@ export function autoSliderNews() {
          }, 800)
       }
    }, 3500)
+}
+
+export function destroySlider() {
+   clearInterval(interval)
 }
 
 export async function launchSlider() {

@@ -1,3 +1,4 @@
+import { getUserLanguage } from "../getUserLanguage.js"
 import { relaunchNewsInScroll } from "./newsLazyLoading.js"
 import { launchSlider } from "./topNewsSlider.js"
 const countries = [
@@ -94,16 +95,6 @@ const countries = [
    { country: "Vietnam", code: "vn", language: "Vietnamese", lang_code: "vi" },
 ]
 
-export function getUserLanguage() {
-   let [language] = navigator.language.split("-", 1)
-
-   if (!language == "en" || !language == "es") {
-      console.log(language)
-      language = "en"
-   }
-
-   return language
-}
 export const textContent = {
    general: {
       en: {

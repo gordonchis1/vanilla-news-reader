@@ -1,0 +1,125 @@
+.news-container {
+   width: 100%;
+   height: fit-content;
+   display: flex;
+   flex-direction: column;
+}
+
+[theme="light"] .news-title,
+[theme="light"] .news-authors,
+[theme="light"] .news-publis_date,
+[theme="light"] .news-summary,
+[theme="light"] .news-text-container,
+[theme="light"] .news-sorce-link span {
+   color: var(--text-color-light);
+}
+
+[theme="dark"] .news-title,
+[theme="dark"] .news-authors,
+[theme="dark"] .news-publis_date,
+[theme="dark"] .news-summary,
+[theme="dark"] .news-text-container,
+[theme="dark"] .news-sorce-link span {
+   color: var(--text-color-dark);
+}
+
+.news-container {
+   font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      "Open Sans",
+      "Helvetica Neue",
+      sans-serif;
+}
+
+.news-title {
+   width: 100%;
+
+   margin-bottom: 16px;
+   font-size: 34px;
+}
+
+.news-authors {
+   font-size: 19px;
+}
+
+.news-publis_date {
+   font-size: 19px;
+   margin-top: 5px;
+   margin-bottom: 18px;
+}
+
+.news-authors i,
+.news-publis_date i {
+   margin-right: 7px;
+}
+
+.news-image {
+   margin-bottom: 10px;
+   max-width: 100%;
+   min-width: 100%;
+   height: fit-content;
+   position: relative;
+   contain: layout;
+}
+
+.news-summary,
+.news-text,
+.news-text-container p {
+   font-size: 19px;
+   line-height: 1.3;
+   letter-spacing: 0.5px;
+   text-align: left;
+}
+
+.news-text-container {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+
+.news-text {
+   margin-top: 15px;
+}
+
+.news-sorce-link {
+   font-size: 19px;
+   margin-top: 15px;
+   margin-bottom: 40px;
+}
+
+.news-sorce-link a {
+   color: var(--brand-color);
+}
+
+@media (min-width: 1360px) {
+   .news-title {
+      font-size: 45px;
+   }
+
+   .news-authors,
+   .news-publis_date {
+      font-size: 22px;
+   }
+
+   .news-text,
+   .news-text-container p {
+      margin-top: 10px;
+   }
+
+   .news-image {
+      max-height: 75vh;
+      object-fit: cover;
+   }
+
+   .news-summary,
+   .news-text-container p {
+      font-size: 28px;
+   }
+}

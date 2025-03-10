@@ -37,3 +37,14 @@ export async function getNews(country, date, language, page) {
       console.error(error)
    }
 }
+
+export async function getNewsById(id) {
+   try {
+      const response = await fetch(`${NEWS_API_PATH}/news/${id}`)
+      const data = await response.json()
+
+      return data
+   } catch (error) {
+      console.error(error)
+   }
+}

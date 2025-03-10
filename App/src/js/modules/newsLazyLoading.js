@@ -1,7 +1,7 @@
+import { getUserLanguage } from "../getUserLanguage.js"
 import { getNews, convertDateFormat } from "./services/wordNewsApi.js"
-import { getUserLanguage } from "./countryAndLenguagePupUp.js"
 
-function calcularTiempoLectura(texto, velocidad = 200) {
+export function calcularTiempoLectura(texto, velocidad = 200) {
    const palabras = texto.split(/\s+/).length
    const tiempo = palabras / velocidad
    return Math.ceil(tiempo)
@@ -37,6 +37,7 @@ async function renderNewsInScroll(news) {
           >${convertDateFormat(new Date())}</span
        >`
    }
+
    firstDateAndTitleRender = false
 
    if (news.top_news) {
@@ -44,11 +45,11 @@ async function renderNewsInScroll(news) {
          const eachNews = element.news[0]
 
          container.innerHTML += `
-             <article class="news_scroll-news-card ${news.top_news.length - 1 === index ? "last-item" : ""}" id="${index}">
+             <a href="/news/${eachNews.id}" class="news_scroll-news-card ${news.top_news.length - 1 === index ? "last-item" : ""}" id="${index}" >
                 <img
                    src=${eachNews.image}
                    alt="News image"
-                   class="news-card_img-cover"
+                   class="news-card_img-cover news-image"
                 />
                 <div class="news-card_text-container">
                    <div class="news-card_text-props">
@@ -72,7 +73,7 @@ async function renderNewsInScroll(news) {
                      ${eachNews.summary}
                    </p>
                 </div>
-             </article>
+             </a>
           `
          nextPageNews = news.nextPage
       })
@@ -165,16 +166,34 @@ function lazyLoadingNews() {
 export async function initNewsInScroll() {
    const preferences = JSON.parse(window.localStorage.getItem("preferences"))
 
-   const news = await getNews(
-      preferences.country,
-      currDate,
-      preferences.language,
-      1,
-   )
+   try {
+      const news = await getNews(
+         preferences.country,
+         currDate,
+         preferences.language,
+         1,
+      )
 
-   if (news) {
-      await renderNewsInScroll(news)
-      lazyLoadingNews()
+      if (news) {
+         await renderNewsInScroll(news)
+         lazyLoadingNews()
+      }
+   } catch {
+      pastDays += 1
+
+      console.log(convertDateFormat(getPastDate(pastDays)))
+
+      const news = await getNews(
+         preferences.country,
+         convertDateFormat(getPastDate(pastDays)),
+         preferences.language,
+         1,
+      )
+
+      if (news) {
+         await renderNewsInScroll(news)
+         lazyLoadingNews()
+      }
    }
 }
 

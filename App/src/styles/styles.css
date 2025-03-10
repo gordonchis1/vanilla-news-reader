@@ -1,118 +1,3 @@
-* {
-   padding: 0;
-   margin: 0;
-   box-sizing: border-box;
-}
-
-:root {
-   --text-color-dark: #cccccc;
-   --text-color-light: #333333;
-   --brand-color: #f82f2f;
-}
-
-html[theme="dark"] body {
-   background: #1a1a1a;
-}
-
-html[theme="light"] body {
-   background: #f5f5f5;
-}
-
-html[theme="light"] #logo-text path {
-   fill: #000;
-}
-
-html[theme="dark"] #logo-text {
-   fill: #ffff;
-}
-
-html[theme="light"] .header {
-   background: #fff;
-}
-
-.header {
-   width: 100vw;
-   height: 60px;
-   padding: 0 25px 0 25px;
-   position: fixed;
-   z-index: 100;
-   background: #000;
-   z-index: 300;
-}
-
-.header_container {
-   width: 100%;
-   height: 100%;
-
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-}
-
-html[theme="light"] #theme,
-html[theme="light"] .user_btn {
-   color: #000;
-}
-
-#theme,
-.user_btn {
-   color: #fff;
-}
-
-#theme,
-.user_btn {
-   border: none;
-   background-color: transparent;
-   font-size: 17px;
-}
-
-.a_logo {
-   width: auto;
-   height: 100%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-}
-
-@keyframes logo-animation {
-   0% {
-      transform: translateX(40%);
-   }
-   100% {
-      transform: translateX(0);
-   }
-}
-
-@keyframes logo-animation-text {
-   0% {
-      transform: translateX(5%);
-      opacity: 0;
-   }
-   50% {
-      opacity: 0.5;
-   }
-   100% {
-      transform: translateX(0);
-   }
-}
-#logo-text {
-   transform: translateX(-5%);
-   animation: logo-animation-text 1s ease forwards;
-}
-
-#logo_main {
-   transform: translateX(40%);
-   animation: logo-animation 1s ease forwards;
-}
-
-.container {
-   width: 90vw;
-   height: 200vh;
-   position: relative;
-   top: 70px;
-   margin: auto;
-}
-
 html[theme="light"] .main-content_top-news-container {
    background: #ffffff;
    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -479,71 +364,6 @@ html[theme="light"] .no-news_content-container {
    cursor: pointer;
 }
 
-.header_user-menu {
-   height: fit-content;
-   z-index: 300;
-   top: 60px;
-   bottom: 0;
-   display: flex;
-   flex-direction: column;
-   border-radius: 4px;
-   position: fixed;
-   opacity: 0;
-   transform: translateY(-10px);
-   transition:
-      opacity 0.3s ease,
-      transform 0.3s ease;
-   pointer-events: none; /* Evita que sea interactuable cuando está oculto */
-}
-
-.header_user-menu-visible {
-   opacity: 1;
-   transform: translateY(0);
-   pointer-events: auto;
-}
-
-html[theme="dark"] .header_user-menu-option {
-   background: #000;
-   color: var(--text-color-dark);
-}
-
-html[theme="light"] .header_user-menu-option {
-   background: #fff;
-   color: var(--text-color-light);
-}
-
-html[theme="dark"] .header_user-menu-option {
-   border: 2px solid #1a1a1a;
-}
-
-html[theme="light"] .header_user-menu-option {
-   border: 2px solid #f5f5f5;
-}
-
-.header_user-menu-option {
-   font-size: 18px;
-   padding: 6px 12px;
-   border: none;
-}
-
-.header_user-menu-option-icon {
-   margin-left: 4px;
-}
-
-.toggle_menu-visibilty {
-   width: 100vw;
-   height: 100vh;
-   position: absolute;
-   top: 0;
-   right: 0;
-
-   z-index: 200;
-}
-
-.preferences-option {
-   border-radius: 4px;
-}
-
 .news_scroll-container {
    display: flex;
    flex-direction: column;
@@ -658,38 +478,7 @@ html[theme="light"] .news_scroll-news-card {
    margin: 0 4px;
 }
 
-.goToTop-visible {
-   width: 50px;
-   height: 50px;
-   border-radius: 100%;
-   background: var(--brand-color);
-   position: fixed;
-   bottom: 10px;
-   right: 10px;
-   border: none;
-   color: var(--text-color-dark);
-
-   font-size: 20px;
-   font-weight: bold;
-
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   cursor: pointer;
-}
-
-.goToTop-hidden {
-   display: none;
-}
-
 @media (min-width: 1360px) {
-   .goToTop-visible {
-      width: 60px;
-      height: 60px;
-      bottom: 20px;
-      right: 17vw;
-   }
-
    .news-card_text-props {
       font-size: 13px;
       margin-bottom: 6px;
@@ -736,15 +525,6 @@ html[theme="light"] .news_scroll-news-card {
 
    .no-news_content-container button {
       font-size: 20px;
-   }
-   .header {
-      padding: 0 16%;
-      height: 70px;
-   }
-
-   .container {
-      width: 68vw;
-      top: 90px;
    }
 
    .pop-up_title {
@@ -795,18 +575,6 @@ html[theme="light"] .news_scroll-news-card {
       border-bottom-right-radius: 7px;
 
       object-fit: cover;
-   }
-
-   #theme_icon {
-      font-size: 25px;
-   }
-
-   .user_btn {
-      font-size: 23px;
-   }
-
-   .a_logo svg {
-      height: 100%;
    }
 
    .card_title {

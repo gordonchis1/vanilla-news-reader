@@ -1,7 +1,5 @@
-import {
-   getUserLanguage,
-   initCountryAndLengagePopUp,
-} from "./countryAndLenguagePupUp.js"
+import { getUserLanguage } from "../getUserLanguage.js"
+import { initCountryAndLengagePopUp } from "./countryAndLenguagePupUp.js"
 
 let menuVisible = false
 
@@ -14,14 +12,7 @@ const textContent = {
    },
 }
 
-const language = getUserLanguage()
-
-const button = document.querySelector("#header_user-button")
-button.addEventListener("click", () => {
-   menuVisible = !menuVisible
-   console.log(menuVisible)
-   toggleHeaderUserMenu()
-})
+let language = getUserLanguage()
 
 export function toggleHeaderUserMenu() {
    const menu = document.getElementById("header_user-menu")
@@ -37,21 +28,37 @@ export function toggleHeaderUserMenu() {
          divToggleMenu.remove()
          toggleHeaderUserMenu()
       })
+
+      menu.classList.toggle("header_user-menu-visible", menuVisible)
    }
-   menu.classList.toggle("header_user-menu-visible", menuVisible)
+
+   function preferencesOption() {
+      const button = document.querySelector(".preferences-option")
+
+      console.log(button)
+
+      button.innerHTML = `${textContent[language].preferences}<i class="fa fa-gear header_user-menu-option-icon"></i>`
+
+      button.addEventListener("click", () => {
+         const divToggleMenu = document.querySelector(".toggle_menu-visibilty")
+         menuVisible = false
+         divToggleMenu.remove()
+         toggleHeaderUserMenu()
+         localStorage.removeItem("preferences")
+         initCountryAndLengagePopUp()
+      })
+   }
 }
 
-function preferencesOption() {
-   const button = document.querySelector(".preferences-option")
+export function menuInit() {
+   language = getUserLanguage()
 
-   button.innerHTML = `${textContent[language].preferences}<i class="fa fa-gear header_user-menu-option-icon"></i>`
-
+   const button = document.querySelector("#header_user-button")
    button.addEventListener("click", () => {
-      const divToggleMenu = document.querySelector(".toggle_menu-visibilty")
-      menuVisible = false
-      divToggleMenu.remove()
+      menuVisible = !menuVisible
+      console.log(menuVisible)
       toggleHeaderUserMenu()
-      localStorage.removeItem("preferences")
-      initCountryAndLengagePopUp()
    })
+
+   toggleHeaderUserMenu()
 }
