@@ -1,7 +1,5 @@
-import { getNewsById } from "../modules/services/wordNewsApi.js"
+import { getNewsById } from "./services/wordNewsApi.js"
 
-// let path = window.location.pathname
-// let id = path.split("/").pop()
 let news = undefined
 
 export async function getNewsContent(id) {

@@ -1,5 +1,5 @@
-import { destroyHomePage, launchHomePage } from "../launchHomePage.js"
-import { relaunchNewsPage } from "../newsPage/relaunchNewsPage.js"
+import { destroyHomePage, launchHomePage } from "./launchHomePage.js"
+import { relaunchNewsPage } from "./relaunchNewsPage.js"
 
 export function initViewTransitions() {
    if (!window.navigation) return

@@ -1,10 +1,10 @@
-import { themeHandle, themeInit } from "./modules/theme.js"
-import { launchSlider } from "./modules/topNewsSlider.js"
-import { initCountryAndLengagePopUp } from "./modules/countryAndLenguagePupUp.js"
-import { menuInit } from "./modules/menuHeader.js"
-import { initNewsInScroll } from "./modules/newsLazyLoading.js"
+import { themeHandle, themeInit } from "./theme.js"
+import { launchSlider } from "./topNewsSlider.js"
+import { initCountryAndLengagePopUp } from "./countryAndLenguagePupUp.js"
+import { menuInit } from "./menuHeader.js"
+import { initNewsInScroll } from "./newsLazyLoading.js"
 import { initScrollTopButton } from "./scrollTopButton.js"
-import { initViewTransitions } from "./modules/viewTransition.js"
+import { initViewTransitions } from "./viewTransition.js"
 
 export async function initNews() {
    await launchSlider()

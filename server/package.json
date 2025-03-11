@@ -4,6 +4,7 @@
       "express": "^4.21.2"
    },
    "scripts": {
-      "dev": "node --env-file=.env server.js"
+      "dev": "NODE_ENV=development node --env-file=.env server.js",
+      "start": "NODE_ENV=production NODE --env-file=.env server.js"
    }
 }

@@ -1,6 +1,7 @@
-import { getUserLanguage } from "../getUserLanguage.js"
+import { getUserLanguage } from "./getUserLanguage.js"
 import { relaunchNewsInScroll } from "./newsLazyLoading.js"
 import { launchSlider } from "./topNewsSlider.js"
+
 const countries = [
    { country: "Afghanistan", code: "af", language: "Persian", lang_code: "fa" },
    { country: "Albania", code: "al", language: "Albanian", lang_code: "sq" },

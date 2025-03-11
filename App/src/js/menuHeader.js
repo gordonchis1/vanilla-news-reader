@@ -1,4 +1,4 @@
-import { getUserLanguage } from "../getUserLanguage.js"
+import { getUserLanguage } from "./getUserLanguage.js"
 import { initCountryAndLengagePopUp } from "./countryAndLenguagePupUp.js"
 
 let menuVisible = false

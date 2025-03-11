@@ -1,11 +1,11 @@
-import { initCountryAndLengagePopUp } from "./modules/countryAndLenguagePupUp.js"
-import { launchFontAwesomeIcons } from "./modules/fontAwesomeIcons.js"
-import { menuInit } from "./modules/menuHeader.js"
-import { relaunchNewsInScroll } from "./modules/newsLazyLoading.js"
-import { themeHandle, themeInit } from "./modules/theme.js"
-import { launchSlider } from "./modules/topNewsSlider.js"
+import { initCountryAndLengagePopUp } from "./countryAndLenguagePupUp.js"
+import { launchFontAwesomeIcons } from "./fontAwesomeIcons.js"
+import { menuInit } from "./menuHeader.js"
+import { relaunchNewsInScroll } from "./newsLazyLoading.js"
+import { themeHandle, themeInit } from "./theme.js"
+import { launchSlider } from "./topNewsSlider.js"
 import { initScrollTopButton } from "./scrollTopButton.js"
-import { destroySlider } from "../js/modules/topNewsSlider.js"
+import { destroySlider } from "./topNewsSlider.js"
 
 export function destroyHomePage() {
    destroySlider()

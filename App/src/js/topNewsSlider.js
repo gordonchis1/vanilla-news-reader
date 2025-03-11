@@ -1,6 +1,6 @@
 import { convertDateFormat, getTopNews } from "./services/wordNewsApi.js"
-import { initCountryAndLengagePopUp } from "../modules/countryAndLenguagePupUp.js"
-import { getUserLanguage } from "../getUserLanguage.js"
+import { initCountryAndLengagePopUp } from "./countryAndLenguagePupUp.js"
+import { getUserLanguage } from "./getUserLanguage.js"
 
 let news = undefined
 let currentUserSliderPosition = 0

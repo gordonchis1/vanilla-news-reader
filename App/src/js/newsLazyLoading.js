@@ -1,4 +1,4 @@
-import { getUserLanguage } from "../getUserLanguage.js"
+import { getUserLanguage } from "./getUserLanguage.js"
 import { getNews, convertDateFormat } from "./services/wordNewsApi.js"
 
 export function calcularTiempoLectura(texto, velocidad = 200) {
