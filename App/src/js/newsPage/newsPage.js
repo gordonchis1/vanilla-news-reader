@@ -8,7 +8,6 @@ export async function getNewsContent(id) {
    if (id) {
       const response = await getNewsById(id)
       news = await response.news[0]
-      console.log(news)
    }
 }
 
@@ -36,7 +35,6 @@ export function renderNews() {
       .replace(/\n+/g, "</p><p>")
       .replace(/^/, "<p>")
       .replace(/$/, "</p>")
-   console.log(news.url)
 
    contentContainer.innerHTML = `
     <div class="news-container">

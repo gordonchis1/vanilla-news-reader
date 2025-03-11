@@ -149,6 +149,8 @@ html[theme="light"] .header_user-menu-option {
    top: 0;
    right: 0;
 
+   background: transparent;
+
    z-index: 200;
 }
 
