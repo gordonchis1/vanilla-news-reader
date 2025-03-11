@@ -30,10 +30,7 @@ app.get("/news/:id", (req, res) => {
 const { WORD_NEWS_API_PRODUCTION_KEY, WORD_NEWS_API_DEVELOPER_KEY } =
    process.env
 
-const WORD_NEWS_API_KEY =
-   process.env.NODE_ENV === "production"
-      ? WORD_NEWS_API_PRODUCTION_KEY
-      : WORD_NEWS_API_DEVELOPER_KEY
+const WORD_NEWS_API_KEY = WORD_NEWS_API_PRODUCTION_KEY
 
 const WORD_NEWS_API_PATH = `https://api.worldnewsapi.com`
 
