@@ -9,7 +9,7 @@
    ],
    "scripts": {
       "dev": "npm run dev --workspace=Server",
-      "start": "npm run start --workspace=Server start",
+      "start": "npm run start --workspace=Server",
       "build": "echo 'No build required'",
       "lint": "prettier --write App Server && eslint App Server"
    },
