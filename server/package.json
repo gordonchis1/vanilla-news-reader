@@ -5,7 +5,7 @@
    },
    "scripts": {
       "dev": "NODE_ENV=development node --env-file=.env server.js",
-      "start": "NODE_ENV=production node --env-file=.env server.js",
+      "start": "NODE_ENV=production node server.js",
       "build": "echo 'No build required'"
    }
 }
